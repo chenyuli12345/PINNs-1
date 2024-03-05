@@ -52,10 +52,11 @@ pgf_with_latex = {                      # setup matplotlib to use latex for outp
     "ytick.labelsize": 8,            
     "figure.figsize": figsize(1.0),     # default fig size of 0.9 textwidth,设置了图形的默认大小为文本宽度的 1.0 倍。这里使用了前面定义的 figsize 函数来计算图形的大小
     #这段代码是在设置 matplotlib 生成图形时使用的 LaTeX 预设命令。这些命令被放在 "pgf.preamble" 的列表中。这些预设命令将在 matplotlib 生成图形时被使用。这意味着你可以在图形的文本中使用 LaTeX 的功能，例如数学公式、特殊字符等等。
-    "pgf.preamble": [
-        r"\usepackage[utf8x]{inputenc}",    # use utf8 fonts becasue your computer can handle it :)导入了inputenc宏包，并设置了其选项为 utf8x。inputenc宏包用于设置LaTeX文档的输入编码，utf8x选项表示使用UTF-8编码。这意味着你可以在图形的文本中直接使用 UTF-8 编码的字符，例如中文、日文、希腊字母等等。
-        r"\usepackage[T1]{fontenc}",        # plots will be generated using this preamble,导入了fontenc宏包，并设置了其选项为 T1。fontenc 宏包用于设置LaTeX文档的字体编码，T1选项表示使用T1编码。T1编码支持西欧语言的大多数字符，包括一些特殊的字符，如法语的重音字符等。
-        ]
+    
+    "pgf.preamble": r"\usepackage[utf8x]{inputenc} \usepackage[T1]{fontenc}",
+    # "pgf.preamble": 
+    #     r"\usepackage[utf8x]{inputenc}",    # use utf8 fonts becasue your computer can handle it :)导入了inputenc宏包，并设置了其选项为 utf8x。inputenc宏包用于设置LaTeX文档的输入编码，utf8x选项表示使用UTF-8编码。这意味着你可以在图形的文本中直接使用 UTF-8 编码的字符，例如中文、日文、希腊字母等等。
+    #     r"\usepackage[T1]{fontenc}",        # plots will be generated using this preamble,导入了fontenc宏包，并设置了其选项为 T1。fontenc 宏包用于设置LaTeX文档的字体编码，T1选项表示使用T1编码。T1编码支持西欧语言的大多数字符，包括一些特殊的字符，如法语的重音字符等。
     }
 mpl.rcParams.update(pgf_with_latex) #将这些设置应用到 matplotlib。rcParams 是 matplotlib 的配置对象，update 方法可以用来修改这些配置。
 
